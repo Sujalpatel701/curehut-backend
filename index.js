@@ -16,7 +16,12 @@ connectDB();
 const geminiRoutes = require("./routes/geminiRoutes");
 const authRoutes = require("./routes/authRoutes");
 const doctorRoutes = require("./routes/doctorRoutes");
+const articleRoutes = require("./routes/articleRoutes");
+const appointmentRoutes = require("./routes/appointmentRoutes");
 
+app.use("/api", appointmentRoutes);
+app.use("/uploads", express.static("uploads")); // To serve image files
+app.use("/api", articleRoutes);
 app.use("/api", doctorRoutes);
 app.use("/api", geminiRoutes);
 app.use("/api/auth", authRoutes);
